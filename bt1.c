@@ -1,19 +1,39 @@
-# Nhập tháng từ người dùng
-thang = int(input("Nhập tháng (1-12): "))
+#include <iostream>
+using namespace std;
 
-# Xác định số ngày trong tháng
-if thang == 1 or thang == 3 or thang == 5 or thang == 7 or thang == 8 or thang == 10 or thang == 12:
-    so_ngay = 31
-elif thang == 4 or thang == 6 or thang == 9 or thang == 11:
-    so_ngay = 30
-elif thang == 2:
-    # Nhập năm để xác định tháng 2 có 28 hay 29 ngày
-    nam = int(input("Nhập năm: "))
-    if (nam % 4 == 0 and nam % 100 != 0) or (nam % 400 == 0):
-        so_ngay = 29  # Năm nhuận
-    else:
-        so_ngay = 28  # Năm không nhuận
-else:
-    so_ngay = "Tháng không hợp lệ"
+void in_so_ngay_thang() {
+    int thang, nam;
+    
+    // Nhập tháng từ người dùng
+    cout << "Nhập tháng (1-12): ";
+    cin >> thang;
+    
+    // Xác định số ngày trong tháng
+    if (thang == 1 || thang == 3 || thang == 5 || thang == 7 || thang == 8 || thang == 10 || thang == 12) {
+        cout << "Số ngày trong tháng " << thang << " là: 31" << endl;
+    } 
+    else if (thang == 4 || thang == 6 || thang == 9 || thang == 11) {
+        cout << "Số ngày trong tháng " << thang << " là: 30" << endl;
+    } 
+    else if (thang == 2) {
+        // Nhập năm để xác định tháng 2 có 28 hay 29 ngày
+        cout << "Nhập năm: ";
+        cin >> nam;
+        
+        if ((nam % 4 == 0 && nam % 100 != 0) || (nam % 400 == 0)) {
+            cout << "Số ngày trong tháng " << thang << " năm " << nam << " là: 29" << endl; // Năm nhuận
+        } else {
+            cout << "Số ngày trong tháng " << thang << " năm " << nam << " là: 28" << endl; // Năm không nhuận
+        }
+    } 
+    else {
+        cout << "Tháng không hợp lệ!" << endl;
+    }
+}
 
-print(f"Số ngày trong tháng {thang} là: {so_ngay}")
+int main() {
+    // Gọi hàm in số ngày trong tháng
+    in_so_ngay_thang();
+    
+    return 0;
+}
